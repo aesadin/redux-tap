@@ -13,3 +13,5 @@ function Keg(props) {
     </React.Fragment>
   ); // add number of pints per keg
 }
+
+export default Keg;

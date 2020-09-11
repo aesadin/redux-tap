@@ -66,10 +66,25 @@ class KegControl extends React.Component {
     });
   }
 
+  // add method to adjust number of pints in keg onclick of "sell pint" button
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
 
+    if (this.state.editing) {
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
+      buttonText = "Return to Keg List";
+    } else if (this.state.selectedKeg != null) {
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onCLickingEdit = {this.handleEditCLick}/>
+      buttonText = "Return to Keg List";
+    } else if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewKegForm onNewKegCreation = {this.handleAddingNewKegToList}/>
+      buttonText = "Return to Keg List";
+    } else {
+      currentlyVisibleState = <KegList kegList = {this.state.masterKegList} onKegSelection = {this.handleChangingSelectedKeg}/>;
+      buttonText = "Add Keg";
+    }
 
     return (
       <React.Fragment>
@@ -79,3 +94,5 @@ class KegControl extends React.Component {
     );
   }
 }
+
+export default KegControl;

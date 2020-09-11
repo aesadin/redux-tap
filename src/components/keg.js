@@ -11,5 +11,5 @@ function Keg(props) {
       <p>{props.alcoholContent}</p>
       <hr/>
     </React.Fragment>
-  );
+  ); // add number of pints per keg
 }

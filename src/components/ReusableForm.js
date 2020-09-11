@@ -27,7 +27,7 @@ function ReusableForm(props){
         <button type='submit'>{props.buttonText}</button>
       </form>
     </React.Fragment>
-  );
+  ); // add section for number of pint per keg input
 }
 
 ReusableForm.propTypes = {

@@ -1,3 +1,102 @@
+**<h1 align = "center"> The Tap**
+
+
+
+
+**<h2 align="center">Beer Beer Beer I love Beer**
+
+
+**<h4 align = "center">
+  <a href="#requirements">Requirements</a> •
+  <a href="#diagram">Diagram</a> •
+  <a href="#setup">Setup</a> •
+  <a href="#protecting-your-data">Protecting Data<a> •
+  <a href="#questions-and-concerns">Q's & C's</a> •
+  <a href="#technologies-used">Technologies</a> •
+  <a href="#bugs">Bugs</a> •  
+  <a href="#contributors">Contributors</a> •
+  <a href="#license">License</a>**
+
+<br>
+<h2 align = "center">
+</h1>
+
+**ABOUT**
+
+An application that allows the user to create a modular list of taps, view the details, edit each tap and also sell a pint.
+
+
+## **REQUIREMENTS**
+
+* Install [Git v2.62.2+](https://git-scm.com/downloads/)
+* Install [Javascript](https://www.javascript.com/)
+* Install [Visual Studio Code](https://code.visualstudio.com/)
+* Install [React](https://reactjs.org/)
+
+ <br>
+
+## **DIAGRAM**
+
+![Diagram](./img/DiagramTap.png)
+
+
+
+## **SETUP**
+
+
+copy this url to clone this project to your local system:
+```html
+https://github.com/aesadin/the-tap.git
+```
+
+<br>
+
+Once copied, select "Clone Repository" from within VSCode & paste the copied link as shown in the image below.
+
+![cloning](https://coding-assets.s3-us-west-2.amazonaws.com/img/clone-github2.gif "Cloning from Github within VSCode")
+
+
+<br>
+
+* _Run the application_
+  1. _In the terminal, navigate to the project directory by running the command `> cd the-tap`_
+  2. _Now that we are in the the-tap directory you will run the command `> npm start`_
+  3. _Go to http://localhost:3000/ in your preferred browser to use the application_
+
+![cloning](https://coding-assets.s3-us-west-2.amazonaws.com/img/dotnet-readme.gif "How to clone repo")
+
+
+## **PROTECTING YOUR DATA**
+
+#### **Step 1: From within VSCode in the root project directory, we will create a .gitignore file**
+
+# For Mac Users
+```js 
+touch .gitignore 
+```
+
+# For Windows Users:
+
+```js 
+ni .gitignore 
+```
+
+#### Step 2: commit that .gitignore file (this prevents your sensitive information from being shown to others). **⚠️DO NOT PROCEED UNTIL YOU DO!⚠️**
+
+![setup](https://coding-assets.s3-us-west-2.amazonaws.com/img/entity-readme-image.png "Set up instructions")
+
+#### Step 3: **To commit your .gitignore file enter the following commands**
+
+```js
+git add .gitignore
+```
+```js
+git commit -m "protect data"
+```
+
+
+<br>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -37,32 +136,40 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## **QUESTIONS AND CONCERNS**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_Questions, comments and concerns can be directed to the author Allison Sadin aesadin@gmail.com_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+## **Technologies Used**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+_**Written in:** [Visual Studio Code](https://code.visualstudio.com/)_
 
-### Analyzing the Bundle Size
+_**Image work:** [Adobe Photoshop](https://www.adobe.com/products/photoshop.html/)_
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+_**Language:** [Javascript](https://www.javascript.com/)_
 
-### Making a Progressive Web App
+_**Frameword:** [React](https://reactjs.org/)_
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+<br>
 
-### Advanced Configuration
+## **Known Bugs**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+_**No known bugs**_
 
-### Deployment
+<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+## **Contributors**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+[<img src="https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/allison-sadin.jpg" width="160px;"/><br /><sub><b>Allison Sadin</b></sub>](https://www.linkedin.com/in/allison-sadin-pdx/)<br /> 
+
+
+<br>
+
+## **License**
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Copyright (c) 2020 **_Allison Sadin_**

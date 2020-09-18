@@ -3,14 +3,14 @@ import KegList from './KegList';
 import KegDetail from './KegDetail';
 import EditKegForm from './EditKegForm';
 import NewKegForm from './NewKegForm';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class KegControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false,
-      masterKegList: [],
       selectedKeg: null,
       editing: false
     };
@@ -21,12 +21,14 @@ class KegControl extends React.Component {
       this.setState({
         formVisibleOnPage: false,
         selectedKeg: null,
-        editing: false
+        editing: false,
       });
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+      const { dispatch } = this.props;
+      const action = {
+        type: 'TOGGLE_FORM'
+      }
+      dispatch(action);
     }
   }
 
@@ -51,11 +53,23 @@ class KegControl extends React.Component {
   }
 
   handleAddingNewKegToList = (newKeg) => {
-    const newMasterKegList = this.state.masterKegList.concat(newKeg);
-    this.setState({
-      masterKegList: newMasterKegList,
-      formVisibleOnPage: false
-    });
+    const { dispatch } = this.props;
+    const { id, brand, name, type, price, pintsInKeg, alcoholContent } = newPost;
+    const action = {
+        type: 'ADD_KEG',
+        id: id,
+        brand: brand,
+        name: name,
+        type: type,
+        price: price,
+        pintsInKeg: pintsInKeg,
+        alcoholContent: alcoholContent,
+    }
+    dispatch(action);
+    const action2 = {
+      type: 'TOGGLE_FORM'
+    }
+    dispatch(action2);
   }
 
   handleDeletingKeg = (id) => {

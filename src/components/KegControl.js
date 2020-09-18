@@ -41,8 +41,8 @@ class KegControl extends React.Component {
 
   handleEditingKegInList = (kegToEdit) => {
     const editedMasterKegList = this.state.masterKegList
-      .filter(keg => keg.id !== this.state.selectedKeg.id)
-      .concat(kegToEdit);
+      .filter(keg => keg.id !== this.state.selectedKeg.id) // this deletes the selected keg
+      .concat(kegToEdit); // replace
     this.setState({
         masterKegList: editedMasterKegList,
         editing: false,
@@ -66,7 +66,7 @@ class KegControl extends React.Component {
     });
   }
 
-  handleSellingPint = (id) => {
+  handleSellingPint = (id) => { // or pass an object
     
   }
 

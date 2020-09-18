@@ -15,7 +15,7 @@ function ReusableForm(props){
           placeholder='Beer Name' />
         <input
           name='type'
-          placeholder='Type of Beer i.e. IPA, Pilsner, Amber' />
+          placeholder='Type i.e. IPA, Pilsner, Amber' />
         <input
           type='price'
           name='price'

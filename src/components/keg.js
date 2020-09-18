@@ -15,7 +15,7 @@ function Keg(props) {
         <hr/>
       <button onClick={() => props.whenSellPintClicked(props.id)}></button>
     </React.Fragment>
-  ); // add number of pints per keg
+  ); 
 }
 
 Keg.propTypes = {
@@ -24,7 +24,10 @@ Keg.propTypes = {
   price: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   pintsInKeg: PropTypes.int.isRequired,
-  alcoholContent: PropTypes.string.isRequired
-}
+  alcoholContent: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  whenKegClicked: PropTypes.func,
+  whenSellPintClicked: PropTypes.func
+};
 
 export default Keg;

@@ -72,29 +72,57 @@ class KegControl extends React.Component {
     dispatch(action2);
   }
 
-  handleDeletingKeg = (id) => {
-    const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
+  handleEditingKegInList = (kegToEdit) => {
+    const {dispatch} = this.props;
+    const {id, brand, name, type, price, pintsInKeg, alcoholContent} = kegToEdit;
+    const action = {
+      type: 'ADD_KEG',
+      id: id,
+      brand: brand,
+      name: name,
+      type: type,
+      price: price,
+      pintsInKeg: pintsInKeg,
+      alcoholContent: alcoholContent,
+    }
+    dispatch(action);
     this.setState({
-      masterKegList: newMasterKegList,
-      selectedKeg: null
+      editing: false,
+      selectedPost: null
     });
+  };
+
+  handleDeletingKeg = (id) => {
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_KEG',
+      id:id
+    }
+    dispatch(action);
+    this.setState({selectedKeg: null});
   }
 
-  handleSellingPint = (id) => { 
-    const selectedKeg = this.state.masterKegList.filter(
-      (keg) => keg.id === id)[0];
-      if (selectedKeg.pintsInKeg > 0) {
-        const soldPint = Object.assign({}, selectedKeg, {pintsInKeg: selectedKeg.pintsInKeg - 1})
-        const editedMasterKegList = this.state.masterKegList
-          .filter(keg => keg.id !== id)
-          .concat(soldPint);
-        this.setState({
-        masterKegList: editedMasterKegList,
-        })
-      }
-  }
+  handleSellingPint = (beerToSellId) => {
+    const beerToSell = this.props.masterKegList[beerToSellId];
+    const {dispatch} = this.props;
+    const {brand, name, type, price, pintsInKeg, alcoholContent} = beerToSell;
+    const sellBeer = pintsInKeg -1;
+      if (pintsInKeg > 0) {
+        const action = {
+          type: 'ADD_KEG',
+          id: id,
+          brand: brand,
+          name: name,
+          type: type,
+          price: price,
+          pintsInKeg: sellBeer,
+          alcoholContent: alcoholContent,
+        }
+      dispatch(action);
+    }
+  };
 
-  // add method to adjust number of pints in keg onclick of "sell pint" button
+
 
   render(){
     let currentlyVisibleState = null;

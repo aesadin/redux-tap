@@ -66,8 +66,18 @@ class KegControl extends React.Component {
     });
   }
 
-  handleSellingPint = (id) => { // or pass an object
-    
+  handleSellingPint = (id) => { 
+    const selectedKeg = this.state.masterKegList.filter(
+      (keg) => keg.id === id)[0];
+      if (selectedKeg.pintsInKeg > 0) {
+        const soldPint = Object.assign({}, selectedKeg, {pintsInKeg: selectedKeg.pintsInKeg - 1})
+        const editedMasterKegList = this.state.masterKegList
+          .filter(keg => keg.id !== id)
+          .concat(soldPint);
+        this.setState({
+        masterKegList: editedMasterKegList,
+        })
+      }
   }
 
   // add method to adjust number of pints in keg onclick of "sell pint" button
@@ -86,7 +96,7 @@ class KegControl extends React.Component {
       currentlyVisibleState = <NewKegForm onNewKegCreation = {this.handleAddingNewKegToList}/>
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <KegList kegList = {this.state.masterKegList} onKegSelection = {this.handleChangingSelectedKeg}/>;
+      currentlyVisibleState = <KegList kegList = {this.state.masterKegList} onKegSelection = {this.handleChangingSelectedKeg} onSellPintSelection = {this.handleSellingPint}/>;
       buttonText = "Add Keg";
     }
 

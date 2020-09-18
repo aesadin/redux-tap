@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 
 
 function KegList(props){
-  // const {onClickingSell} = props;
 
   return (
     <React.Fragment>

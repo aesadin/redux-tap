@@ -8,7 +8,6 @@ function KegList(props){
 
   return (
     <React.Fragment>
-      {/* <button onClick={()=> onClickingSell(keg.id) }>Sell Pint</button> */}
       <hr/>
       {props.kegList.map((keg) =>
         <Keg
@@ -17,6 +16,7 @@ function KegList(props){
           name={keg.name}
           price={keg.price}
           type={keg.type}
+          pintsInKeg={keg.pintsInKeg}
           alcoholContent={keg.alcoholContent}
           id={keg.id}
           key={keg.id}/>

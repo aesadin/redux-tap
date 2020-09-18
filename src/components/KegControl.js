@@ -54,7 +54,7 @@ class KegControl extends React.Component {
 
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
-    const { id, brand, name, type, price, pintsInKeg, alcoholContent } = newPost;
+    const { id, brand, name, type, price, pintsInKeg, alcoholContent } = newKeg;
     const action = {
         type: 'ADD_KEG',
         id: id,
@@ -72,7 +72,7 @@ class KegControl extends React.Component {
     dispatch(action2);
   }
 
-  handleEditingKegInList = (kegToEdit) => {
+  handleEditCLick = (kegToEdit) => {
     const {dispatch} = this.props;
     const {id, brand, name, type, price, pintsInKeg, alcoholContent} = kegToEdit;
     const action = {
@@ -105,7 +105,7 @@ class KegControl extends React.Component {
   handleSellingPint = (beerToSellId) => {
     const beerToSell = this.props.masterKegList[beerToSellId];
     const {dispatch} = this.props;
-    const {brand, name, type, price, pintsInKeg, alcoholContent} = beerToSell;
+    const {id, brand, name, type, price, pintsInKeg, alcoholContent} = beerToSell;
     const sellBeer = pintsInKeg -1;
       if (pintsInKeg > 0) {
         const action = {
@@ -132,7 +132,7 @@ class KegControl extends React.Component {
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonText = "Return to Keg List";
     } else if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onCLickingEdit = {this.handleEditCLick} onClickingSell = {this.handleSellingPint}/>
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} onCLickingEdit = {this.handleEditCLick}/>
       buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm onNewKegCreation = {this.handleAddingNewKegToList}/>
@@ -151,4 +151,17 @@ class KegControl extends React.Component {
   }
 }
 
+KegControl.propTypes = {
+  masterKegList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
+}
+
+const mapStateToProps = state => {
+  return {
+    masterKegList: state.masterKegList, 
+    formVisibleOnPage: state.formVisibleOnPage
+  }
+}
+
+KegControl = connect(mapStateToProps)(KegControl);
 export default KegControl;

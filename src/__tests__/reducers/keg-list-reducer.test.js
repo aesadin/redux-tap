@@ -1,8 +1,20 @@
-import formVisibleReducer from '../../reducers/form-visible-reducer';
+import kegListReducer from '../../reducers/form-visible-reducer';
 
-describe("formVisibleReducer", () => {
+describe('kegListReducer', () => {
 
-  test('Should return default state if no action type is recognized', () => {
-    expect(formVisibleReducer(false, { type: null })).toEqual(false);
+  let action;
+  const kegData = {
+    brand: "Pfriem",
+    name: "Down Under",
+    type: "IPA",
+    price: "3.89",
+    pintsInKeg: 124,
+    alcoholContent: "7.2",
+    id: 1
+  };
+  
+
+  test('Should return default state if there is no action type passed into the reducer', () => {
+    expect(kegListReducer({}, { type: null })).toEqual({});
   })
 });
